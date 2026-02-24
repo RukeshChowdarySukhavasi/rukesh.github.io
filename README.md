@@ -1,1 +1,0 @@
-# rukesh.github.io
