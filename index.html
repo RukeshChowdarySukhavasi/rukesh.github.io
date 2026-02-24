@@ -3,22 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rukesh Chowdary | Journey</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Rukesh | From Tenali to Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
     font-family:'Poppins',sans-serif;
+    background:#0b0c1a;
+    color:white;
+    overflow-x:hidden;
 }
 
-body{
-    background:#0f0f1a;
-    color:#fff;
-    overflow-x:hidden;
+/* Animated background */
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle,#1f1f4d 1px,transparent 1px);
+    background-size:50px 50px;
+    animation:moveBg 60s linear infinite;
+    z-index:-1;
+}
+@keyframes moveBg{
+    from{transform:translate(0,0);}
+    to{transform:translate(-500px,-500px);}
 }
 
 .hero{
@@ -28,201 +38,212 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    background:linear-gradient(-45deg,#1a1a2e,#16213e,#0f3460,#533483);
-    background-size:400% 400%;
-    animation:gradient 10s ease infinite;
 }
-
-@keyframes gradient{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
 .hero h1{
+    font-family:'Orbitron',sans-serif;
     font-size:3rem;
-    font-weight:700;
+    background:linear-gradient(90deg,#00f5ff,#8a2be2);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
-
 .hero p{
-    margin-top:15px;
-    font-size:1.2rem;
-    opacity:0.8;
+    margin-top:20px;
+    opacity:0.7;
 }
-
-.scroll-down{
-    position:absolute;
-    bottom:30px;
-    font-size:14px;
-    opacity:0.6;
-    animation: bounce 2s infinite;
+.scroll{
+    margin-top:40px;
+    animation:bounce 2s infinite;
 }
-
 @keyframes bounce{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(10px);}
 }
 
+/* Timeline */
 .timeline{
     position:relative;
-    max-width:900px;
-    margin:auto;
-    padding:100px 20px;
+    width:80%;
+    margin:100px auto;
 }
 
-.timeline::after{
-    content:'';
+.line{
     position:absolute;
+    left:50%;
     width:4px;
-    background:#00f5ff;
+    background:linear-gradient(to bottom,#00f5ff,#8a2be2);
     top:0;
     bottom:0;
-    left:50%;
-    margin-left:-2px;
+    transform:translateX(-50%);
+    box-shadow:0 0 15px #00f5ff;
 }
 
-.container{
-    padding:20px 40px;
+.card{
+    width:40%;
+    padding:20px;
+    background:#141530;
+    border-radius:15px;
+    margin:60px 0;
     position:relative;
-    width:50%;
     opacity:0;
-    transform:translateY(50px);
+    transform:translateY(40px);
     transition:0.8s ease;
+    box-shadow:0 0 20px rgba(0,245,255,0.2);
 }
 
-.container.show{
+.card.show{
     opacity:1;
     transform:translateY(0);
 }
 
-.left{
-    left:0;
+.left{left:0;}
+.right{left:60%;}
+
+.dot{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:#00f5ff;
+    border-radius:50%;
+    top:20px;
+    box-shadow:0 0 15px #00f5ff;
 }
 
-.right{
-    left:50%;
-}
+.left .dot{right:-50px;}
+.right .dot{left:-50px;}
 
-.content{
-    background:#1a1a2e;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 0 20px rgba(0,245,255,0.2);
-}
-
-.content h2{
+.card h2{
     color:#00f5ff;
     margin-bottom:10px;
 }
 
+/* Skills */
+.skills{
+    text-align:center;
+    margin:150px 0;
+}
+.skill{
+    width:60%;
+    margin:20px auto;
+    text-align:left;
+}
+.bar{
+    height:10px;
+    background:#222;
+    border-radius:20px;
+    overflow:hidden;
+}
+.progress{
+    height:10px;
+    background:linear-gradient(90deg,#00f5ff,#8a2be2);
+    width:0;
+    transition:2s;
+}
+
+/* Footer */
 .footer{
     text-align:center;
     padding:80px 20px;
     background:#111;
 }
-
 .footer h2{
-    font-size:2rem;
+    font-family:'Orbitron',sans-serif;
 }
-
-.footer p{
-    margin-top:15px;
-    opacity:0.7;
-}
-
-@media(max-width:768px){
-    .timeline::after{
-        left:20px;
-    }
-    .container{
-        width:100%;
-        padding-left:60px;
-        padding-right:25px;
-    }
-    .right{
-        left:0%;
-    }
+@media(max-width:900px){
+    .card{width:90%;left:0 !important;margin-left:5%;}
+    .line{left:10px;}
+    .dot{left:-30px !important;}
 }
 </style>
 </head>
-
 <body>
 
 <section class="hero">
     <h1>From Tenali to Tech</h1>
     <p>A Journey of Growth, Movement & Ambition</p>
-    <div class="scroll-down">Scroll Down ↓</div>
+    <div class="scroll">Scroll ↓</div>
 </section>
 
 <section class="timeline">
+    <div class="line"></div>
 
-    <div class="container left">
-        <div class="content">
-            <h2>2003 – Tenali, Andhra Pradesh</h2>
-            <p>Born on September 28. The journey begins from a small town with big dreams.</p>
-        </div>
+    <div class="card left">
+        <div class="dot"></div>
+        <h2>2003 – Tenali</h2>
+        <p>Born in Tenali, Andhra Pradesh. Where everything began.</p>
     </div>
 
-    <div class="container right">
-        <div class="content">
-            <h2>Sindhanur, Karnataka</h2>
-            <p>From 5th to 10th class. Adapted to a new state, built resilience and discipline.</p>
-        </div>
+    <div class="card right">
+        <div class="dot"></div>
+        <h2>Sindhanur</h2>
+        <p>Adapted to a new state. Built resilience and discipline.</p>
     </div>
 
-    <div class="container left">
-        <div class="content">
-            <h2>Sriramanagar</h2>
-            <p>11th & 12th – Academic focus sharpened. Foundations for engineering built.</p>
-        </div>
+    <div class="card left">
+        <div class="dot"></div>
+        <h2>Sriramanagar</h2>
+        <p>Focused on academics. Built the engineering foundation.</p>
     </div>
 
-    <div class="container right">
-        <div class="content">
-            <h2>Bengaluru – Engineering</h2>
-            <p>Moved to Bengaluru. Completed B.Tech. Exposure to technology, innovation and ambition.</p>
-        </div>
+    <div class="card right">
+        <div class="dot"></div>
+        <h2>Bengaluru – Engineering</h2>
+        <p>Completed B.Tech. Exposure to innovation and technology.</p>
     </div>
 
-    <div class="container left">
-        <div class="content">
-            <h2>Hyderabad – Machine Learning</h2>
-            <p>Curiosity turned into skill. Completed a 4-month Machine Learning course to expand technical depth.</p>
-        </div>
+    <div class="card left">
+        <div class="dot"></div>
+        <h2>Hyderabad – Machine Learning</h2>
+        <p>Expanded technical depth with ML training.</p>
     </div>
 
-    <div class="container right">
-        <div class="content">
-            <h2>Mysuru – Internship (Nov 17, 2025)</h2>
-            <p>Entered the professional world. Industry experience begins.</p>
-        </div>
+    <div class="card right">
+        <div class="dot"></div>
+        <h2>Mysuru – Professional Career</h2>
+        <p>Intern → Full-time employee. Growth became responsibility.</p>
     </div>
 
-    <div class="container left">
-        <div class="content">
-            <h2>Full-Time Professional</h2>
-            <p>Converted intern to full-time employee. Growth became responsibility. The journey continues...</p>
-        </div>
+</section>
+
+<section class="skills">
+    <h2>Growth & Skills</h2>
+
+    <div class="skill">
+        <p>Automation Testing</p>
+        <div class="bar"><div class="progress" data-width="90%"></div></div>
     </div>
 
+    <div class="skill">
+        <p>Machine Learning</p>
+        <div class="bar"><div class="progress" data-width="70%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>Problem Solving</p>
+        <div class="bar"><div class="progress" data-width="95%"></div></div>
+    </div>
 </section>
 
 <section class="footer">
-    <h2>This is Just the Beginning 🚀</h2>
-    <p>Rukesh Chowdary | Growth-Oriented Technologist</p>
+    <h2>This Is Just The Beginning 🚀</h2>
+    <p>Rukesh Chowdary</p>
 </section>
 
 <script>
-const containers = document.querySelectorAll('.container');
+const cards=document.querySelectorAll('.card');
+const progress=document.querySelectorAll('.progress');
 
-window.addEventListener('scroll', () => {
-    const triggerBottom = window.innerHeight * 0.85;
+window.addEventListener('scroll',()=>{
+    const trigger=window.innerHeight*0.85;
 
-    containers.forEach(container => {
-        const boxTop = container.getBoundingClientRect().top;
+    cards.forEach(card=>{
+        if(card.getBoundingClientRect().top<trigger){
+            card.classList.add('show');
+        }
+    });
 
-        if(boxTop < triggerBottom){
-            container.classList.add('show');
+    progress.forEach(bar=>{
+        if(bar.getBoundingClientRect().top<trigger){
+            bar.style.width=bar.dataset.width;
         }
     });
 });
