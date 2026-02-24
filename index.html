@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rukesh Chowdary | Journey</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f0f1a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(-45deg,#1a1a2e,#16213e,#0f3460,#533483);
+    background-size:400% 400%;
+    animation:gradient 10s ease infinite;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.hero h1{
+    font-size:3rem;
+    font-weight:700;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2rem;
+    opacity:0.8;
+}
+
+.scroll-down{
+    position:absolute;
+    bottom:30px;
+    font-size:14px;
+    opacity:0.6;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+}
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+    padding:100px 20px;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:4px;
+    background:#00f5ff;
+    top:0;
+    bottom:0;
+    left:50%;
+    margin-left:-2px;
+}
+
+.container{
+    padding:20px 40px;
+    position:relative;
+    width:50%;
+    opacity:0;
+    transform:translateY(50px);
+    transition:0.8s ease;
+}
+
+.container.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.left{
+    left:0;
+}
+
+.right{
+    left:50%;
+}
+
+.content{
+    background:#1a1a2e;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,245,255,0.2);
+}
+
+.content h2{
+    color:#00f5ff;
+    margin-bottom:10px;
+}
+
+.footer{
+    text-align:center;
+    padding:80px 20px;
+    background:#111;
+}
+
+.footer h2{
+    font-size:2rem;
+}
+
+.footer p{
+    margin-top:15px;
+    opacity:0.7;
+}
+
+@media(max-width:768px){
+    .timeline::after{
+        left:20px;
+    }
+    .container{
+        width:100%;
+        padding-left:60px;
+        padding-right:25px;
+    }
+    .right{
+        left:0%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>From Tenali to Tech</h1>
+    <p>A Journey of Growth, Movement & Ambition</p>
+    <div class="scroll-down">Scroll Down ↓</div>
+</section>
+
+<section class="timeline">
+
+    <div class="container left">
+        <div class="content">
+            <h2>2003 – Tenali, Andhra Pradesh</h2>
+            <p>Born on September 28. The journey begins from a small town with big dreams.</p>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <h2>Sindhanur, Karnataka</h2>
+            <p>From 5th to 10th class. Adapted to a new state, built resilience and discipline.</p>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>Sriramanagar</h2>
+            <p>11th & 12th – Academic focus sharpened. Foundations for engineering built.</p>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <h2>Bengaluru – Engineering</h2>
+            <p>Moved to Bengaluru. Completed B.Tech. Exposure to technology, innovation and ambition.</p>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>Hyderabad – Machine Learning</h2>
+            <p>Curiosity turned into skill. Completed a 4-month Machine Learning course to expand technical depth.</p>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <h2>Mysuru – Internship (Nov 17, 2025)</h2>
+            <p>Entered the professional world. Industry experience begins.</p>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>Full-Time Professional</h2>
+            <p>Converted intern to full-time employee. Growth became responsibility. The journey continues...</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="footer">
+    <h2>This is Just the Beginning 🚀</h2>
+    <p>Rukesh Chowdary | Growth-Oriented Technologist</p>
+</section>
+
+<script>
+const containers = document.querySelectorAll('.container');
+
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    containers.forEach(container => {
+        const boxTop = container.getBoundingClientRect().top;
+
+        if(boxTop < triggerBottom){
+            container.classList.add('show');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
